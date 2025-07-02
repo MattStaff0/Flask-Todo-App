@@ -1,0 +1,21 @@
+<!-- adding our base html -->
+{% extends 'base.html' %}
+
+<!-- getting the head block -->
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+<!-- Getting the body block -->
+{% block body %}
+
+<div class="content">
+  <h1>Edit your task</h1>
+  <!-- must be the same as the route that we need to go to, the route of the edit in the app.py -->
+  <form action="/edit/{{task.id}}" method="POST" class="edit">
+    <input type="text" name="content" id="content" value="{{task.content}}" />
+    <input type="submit" value="Save Changes" />
+  </form>
+</div>
+
+{% endblock %}

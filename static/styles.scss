@@ -1,0 +1,127 @@
+// Color Variables
+$background-color: #0f172a;
+$text-color: #f1f5f9;
+$border-color: #334155;
+$button-color: #3b82f6;
+$button-hover-color: #d6d6d6;
+$accent-color: #8b5cf6;
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+  margin: 0;
+}
+
+h1 {
+  border-bottom: solid 5px $border-color;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 36px;
+}
+div.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+table {
+  border: 2px solid $border-color;
+  border-collapse: collapse;
+  max-width: 70%;
+  min-width: 70%;
+}
+
+table tr th {
+  text-align: center;
+  border: $border-color solid 2px;
+}
+
+table tr {
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+table tr td {
+  text-align: center;
+  border: $border-color solid 2px;
+  padding: 5px;
+}
+
+// If you want only the Task column to wrap
+table tr td:first-child {
+  max-width: 250px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: center; // Left align for better readability
+}
+
+// Keep other columns from wrapping
+table tr td:not(:first-child) {
+  white-space: nowrap;
+}
+
+table tr td a {
+  text-decoration: none;
+  border: $border-color solid 2px;
+  border-radius: 20%;
+  margin: 5px;
+  padding: 5px;
+  display: inline-block;
+  color: $text-color;
+  background-color: $border-color;
+  min-width: 20%;
+}
+
+table tr td a:hover {
+  background-color: lighten($border-color, 10%);
+  border: 2px solid $accent-color;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form {
+  margin: 15px 0px;
+}
+form input[type="submit"] {
+  color: $text-color;
+  background-color: $border-color;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 16px;
+  margin-left: 10px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+  background-color: lighten($border-color, 10%);
+  border: 2px solid $accent-color;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form input[type="text"] {
+  color: $text-color;
+  background-color: $border-color;
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-size: 16px;
+  min-width: 300px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+form input[type="text"]:focus {
+  outline: none;
+  border: 2px solid $accent-color;
+  background-color: lighten($border-color, 10%);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.3);
+  transform: scale(1.02);
+}
+
+form .content {
+  flex-direction: column;
+}

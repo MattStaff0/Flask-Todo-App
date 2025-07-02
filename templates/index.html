@@ -1,0 +1,38 @@
+<!-- to inherit -->
+{% extends 'base.html' %} {% block head %}
+<title>Task Master</title>
+{% endblock %} {% block body %}
+<div class="content">
+  <h1>Task Master</h1>
+  <!-- adding logic here -->
+  {% if tasks | length < 1%}
+  <h3>There are no tasks... Create one here!</h3>
+  {% else %}
+  <table>
+    <tr>
+      <th>Task</th>
+      <th>Date</th>
+      <th>Actions</th>
+    </tr>
+    <!-- this is what is going to be populated -->
+    {% for task in tasks %}
+    <tr>
+      <td>{{ task.content }}</td>
+      <td>{{ task.created.strftime('%m/%d/%Y') }}</td>
+      <td>
+        <a href="/delete/{{task.id}}">Delete</a>
+        <br />
+        <!-- must match the route that we define in the app.py -->
+        <a href="/edit/{{task.id}}">Edit</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+  <!-- this is the action that is done -->
+  <form action="/" method="POST">
+    <input type="text" name="content" id="content" />
+    <input type="submit" value="Add Task!" id="button_add" />
+  </form>
+</div>
+{% endblock %}
